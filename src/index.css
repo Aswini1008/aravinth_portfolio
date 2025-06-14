@@ -84,3 +84,12 @@
     @apply bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent;
   }
 }
+
+@layer components {
+  .glow-card {
+    @apply transition-all duration-300;
+  }
+  .glow-card:hover {
+    @apply shadow-[0_0_20px_hsl(var(--accent)/0.5)];
+  }
+}

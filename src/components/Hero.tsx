@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
+import type { Container } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { useTypingEffect } from '@/hooks/useTypingEffect';
 import CustomButton from './CustomButton';
@@ -17,7 +18,7 @@ const Hero: React.FC = () => {
     });
   }, []);
 
-  const particlesLoaded = (container: any) => {
+  const particlesLoaded = async (container?: Container) => {
     console.log(container);
   };
   
@@ -81,7 +82,7 @@ const Hero: React.FC = () => {
         },
       },
       detectRetina: true,
-    }),
+    } as const),
     [],
   );
 

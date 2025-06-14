@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import CustomButton from './CustomButton';
 
 const socialLinks = [
   { 
@@ -26,17 +27,19 @@ const socialLinks = [
 ];
 
 const Contact: React.FC = () => {
+  const inputClasses = "w-full bg-card border border-border rounded-md px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
       className="container mx-auto px-6 py-20 text-center"
     >
       <h2 className="text-3xl font-bold mb-4 gradient-text">Let's Connect</h2>
-      <p className="text-muted-foreground mb-8">Open for freelance, internships, and collaborations.</p>
-      <div className="flex justify-center gap-8">
+      <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">Open for freelance, internships, and collaborations. Feel free to reach out through my socials or send me a message directly.</p>
+      <div className="flex justify-center gap-8 mb-12">
         {socialLinks.map((link) => (
           <Tooltip key={link.name}>
             <TooltipTrigger asChild>
@@ -57,6 +60,35 @@ const Contact: React.FC = () => {
           </Tooltip>
         ))}
       </div>
+
+      <motion.form
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-xl mx-auto text-left space-y-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          // To-do: Add toast notification
+        }}
+      >
+        <div>
+          <label htmlFor="name" className="sr-only">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your Name" required className={inputClasses} />
+        </div>
+        <div>
+          <label htmlFor="email" className="sr-only">Email</label>
+          <input id="email" name="email" type="email" placeholder="Your Email" required className={inputClasses} />
+        </div>
+        <div>
+          <label htmlFor="message" className="sr-only">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" rows={5} required className={inputClasses} />
+        </div>
+        <div className="text-center pt-4">
+          <CustomButton type="submit" variant="solid">Send Message</CustomButton>
+        </div>
+      </motion.form>
+
        <footer className="mt-20 pt-8 border-t border-border text-center text-muted-foreground">
         <p>&copy; {new Date().getFullYear()} Aravinth Kumar. All rights reserved.</p>
       </footer>
