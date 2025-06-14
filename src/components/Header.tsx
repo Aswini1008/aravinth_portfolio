@@ -1,5 +1,14 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Menu } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -30,7 +39,25 @@ const Header: React.FC = () => {
             </li>
           ))}
         </ul>
-        {/* Mobile menu could be added here later */}
+        <div className="md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {navLinks.map((link) => (
+                <DropdownMenuItem key={link.name} asChild>
+                  <a href={link.href} className="w-full text-lg p-2">
+                    {link.name}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </nav>
     </motion.header>
   );
