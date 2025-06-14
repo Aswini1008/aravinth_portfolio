@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { School } from 'lucide-react';
@@ -9,18 +8,6 @@ const educationData = [
     institution: 'Panimalar Engineering College',
     years: '2021 – 2025',
     details: 'CGPA: 8.5 | Participated in Hackathons, Projects',
-  },
-  {
-    degree: '12th Grade',
-    institution: 'XYZ Matric School',
-    years: '2021',
-    details: 'Score: 90%',
-  },
-  {
-    degree: '10th Grade',
-    institution: 'XYZ Matric School',
-    years: '2019',
-    details: 'Score: 92%',
   },
 ];
 
