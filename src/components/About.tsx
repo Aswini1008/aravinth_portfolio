@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionContent,
@@ -11,20 +10,12 @@ import { CheckCircle } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8 }}
+    <div
       className="container mx-auto px-6 py-20"
     >
       <h2 className="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
       <div className="grid md:grid-cols-2 gap-16 items-start">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }}
+        <div
           className="bg-card/50 border border-border/50 p-8 rounded-lg glow-card h-full"
         >
           <h3 className="text-2xl font-bold mb-2">Aravinth Kumar</h3>
@@ -32,12 +23,8 @@ const About: React.FC = () => {
           <p className="text-muted-foreground">
             Hello! I’m Aravinth Kumar, a results-driven developer who transforms ideas into interactive digital products. With a strong foundation in React.js, Node.js, and UI design, I thrive on building clean, high-performance applications.
           </p>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        </div>
+        <div
           className="bg-card/50 border border-border/50 p-8 rounded-lg glow-card"
         >
           <h3 className="text-2xl font-bold mb-4">A Few Facts About Me</h3>
@@ -67,21 +54,17 @@ const About: React.FC = () => {
             <li className="flex items-center gap-2 text-muted-foreground"><CheckCircle className="text-accent h-5 w-5" /> Collaborative Spirit</li>
             <li className="flex items-center gap-2 text-muted-foreground"><CheckCircle className="text-accent h-5 w-5" /> Creative Problem Solver</li>
           </ul>
-        </motion.div>
+        </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
+      <div
         className="mt-20 text-center"
       >
         <div className="inline-block bg-card border border-border p-8 rounded-lg glow-card">
           <p className="text-5xl font-bold gradient-text">5+</p>
           <p className="text-xl text-muted-foreground mt-2">Hands-On Projects Completed</p>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
