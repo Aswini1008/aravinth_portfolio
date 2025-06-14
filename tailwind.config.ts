@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -84,11 +87,25 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'glow': {
+          '0%, 100%': { boxShadow: '0 0 5px hsl(var(--ring)), 0 0 10px hsl(var(--ring))' },
+          '50%': { boxShadow: '0 0 20px hsl(var(--ring)), 0 0 30px hsl(var(--ring))' }
+        },
+        'typing': {
+          'from': { width: '0' },
+          'to': { width: '100%' }
+        },
+        'blink-caret': {
+          'from, to': { borderColor: 'transparent' },
+          '50%': { borderColor: 'hsl(var(--accent))' },
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'glow': 'glow 2s ease-in-out infinite',
+        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
 			}
 		}
 	},
