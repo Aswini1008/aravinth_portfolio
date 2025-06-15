@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# 💼 Aravinth Kumar | Full Stack Developer Portfolio
 
-## Project info
+Welcome to my personal developer portfolio! This site showcases my projects, technical skills, experience, and passion for building modern web applications using cutting-edge technologies.
 
-**URL**: https://lovable.dev/projects/240fcb25-e2f7-4e4e-8505-a8fada1831da
+![Portfolio Banner](https://yourdomain.com/images/aravinth-og.png)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Live Demo
 
-**Use Lovable**
+🔗 [View Live Portfolio](https://aravinthkumar.dev)  
+📧 Contact: aravinth.dev@gmail.com
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/240fcb25-e2f7-4e4e-8505-a8fada1831da) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🧑‍💻 About Me
 
-**Use your preferred IDE**
+I'm **Aravinth Kumar**, a passionate Full Stack Developer skilled in building scalable, user-friendly, and responsive web applications. With a strong foundation in JavaScript, React, and backend systems, I strive to create meaningful digital experiences.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠 Tech Stack
 
-Follow these steps:
+| Frontend  | Backend    | Database     | Tools & Others         |
+|-----------|------------|--------------|-------------------------|
+| HTML, CSS, JavaScript , React.js,  | Node.js, Express.js | MongoDB, Firebase | Git, GitHub, Figma, Vercel |
+| REST APIs     |                        | Postman, VS Code         |
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📁 Features
 
-# Step 3: Install the necessary dependencies.
-npm i
+- 🔐 Authentication & Authorization
+- 📱 Responsive Design (Mobile-Friendly)
+- ⚡ Fast Performance
+- 🧠 Clean, Reusable Code
+- 🌐 SEO Optimized Meta Tags
+- 🎯 Fully Custom Domain Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 🖼️ Screenshots
+
+| Desktop View | Mobile View |
+|--------------|-------------|
+| ![Desktop Screenshot](https://yourdomain.com/images/desktop-view.png) | ![Mobile Screenshot](https://yourdomain.com/images/mobile-view.png) |
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/aravinthkumar/portfolio.git
+
+# Navigate to the project folder
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/240fcb25-e2f7-4e4e-8505-a8fada1831da) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
