@@ -1,4 +1,3 @@
-
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 :root {
@@ -44,6 +43,10 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 220 100% 75%;
+}
+
+::selection {
+  background-color: hsl(var(--accent) / 0.3);
 }
 
 body {
@@ -137,3 +140,11 @@ html {
     border-color: hsl(var(--border)) !important;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}

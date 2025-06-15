@@ -14,8 +14,8 @@ const projectsData = [
   },
   {
     title: 'Portfolio CMS (lovable.dev)',
-    description: 'Custom CMS-based portfolio generator using React, Tailwind, and animations.',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+    description: 'Custom CMS-based portfolio generator using React, Bootstrap, and animations.',
+    tags: ['React', 'Bootstrap', 'CSS Animations'],
     githubUrl: 'https://github.com/aravinth-kumar-b',
     liveUrl: '#',
     imageUrl: 'https://placehold.co/600x400/27272a/a1a1aa?text=Portfolio+CMS',

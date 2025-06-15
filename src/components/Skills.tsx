@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { CodeSlash, Brush, Database, Gear } from 'react-bootstrap-icons';
@@ -10,7 +9,7 @@ const skillsData = {
   },
   'Frontend': {
     icon: <Brush size={32} />,
-    skills: ['React.js', 'HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'Framer Motion'],
+    skills: ['React.js', 'HTML5', 'CSS3', 'Bootstrap', 'CSS Animations'],
   },
   'Backend': {
     icon: <Database size={32} />,
