@@ -16,10 +16,10 @@ const TiltCard: React.FC<TiltCardProps> = ({ children, options: userOptions, ...
   const ref = useRef<HTMLDivElement>(null);
 
   const defaultOptions = {
-    max: 15,
-    perspective: 1000,
-    scale: 1.05,
-    speed: 400,
+    max: 25,
+    perspective: 1500,
+    scale: 1.06,
+    speed: 500,
     easing: 'cubic-bezier(.03,.98,.52,.99)',
   };
 

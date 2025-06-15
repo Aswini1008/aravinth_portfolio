@@ -124,6 +124,10 @@ html {
     transform: scale(1.2) translateY(-5px);
 }
 
+.group:hover .group-hover-zoom {
+  transform: scale(1.1);
+}
+
 .accordion-button {
   color: hsl(var(--foreground)) !important;
 }

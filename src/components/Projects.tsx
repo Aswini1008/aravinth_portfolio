@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { Github, BoxArrowUpRight } from 'react-bootstrap-icons';
@@ -53,7 +52,7 @@ const Projects: React.FC = () => {
             <TiltCard options={{ scale: 1.03 }}>
               <Card className="rounded-3 shadow-sm overflow-hidden h-100 d-flex flex-column group glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
                 <div className="overflow-hidden" style={{height: '12rem'}}>
-                  <Card.Img variant="top" src={project.imageUrl} alt={project.title} className="w-100 h-100" style={{ objectFit: 'cover', transition: 'transform 0.5s ease-in-out'}} />
+                  <Card.Img variant="top" src={project.imageUrl} alt={project.title} className="w-100 h-100 group-hover-zoom" style={{ objectFit: 'cover', transition: 'transform 0.5s ease-in-out'}} />
                 </div>
                 <Card.Body className="d-flex flex-column">
                   <Card.Title as="h3" className="h5 fw-bold mb-2">{project.title}</Card.Title>
