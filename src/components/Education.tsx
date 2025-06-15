@@ -2,6 +2,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { MortarboardFill } from 'react-bootstrap-icons';
+import TiltCard from './TiltCard';
 
 const educationData = [
   {
@@ -23,12 +24,14 @@ const Education: React.FC = () => {
             <div className="z-1 rounded-circle p-2 border-2 d-inline-flex justify-content-center align-items-center" style={{backgroundColor: 'hsl(var(--background))', border: `2px solid hsl(var(--accent))`, width: '40px', height: '40px'}}>
               <MortarboardFill style={{color: 'hsl(var(--accent))'}} size={20} />
             </div>
-            <div className="ms-4 p-3 rounded-3 shadow-sm w-100 glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
-              <h3 className="fs-5 fw-bold">{item.degree}</h3>
-              <p className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{item.institution}</p>
-              <p className="small my-1" style={{color: 'hsl(var(--muted-foreground))'}}>{item.years}</p>
-              <p className="small mt-2" style={{color: 'hsl(var(--muted-foreground))'}}>{item.details}</p>
-            </div>
+            <TiltCard className="ms-4 w-100">
+              <div className="p-3 rounded-3 shadow-sm w-100 glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
+                <h3 className="fs-5 fw-bold">{item.degree}</h3>
+                <p className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{item.institution}</p>
+                <p className="small my-1" style={{color: 'hsl(var(--muted-foreground))'}}>{item.years}</p>
+                <p className="small mt-2" style={{color: 'hsl(var(--muted-foreground))'}}>{item.details}</p>
+              </div>
+            </TiltCard>
           </div>
         ))}
       </div>
