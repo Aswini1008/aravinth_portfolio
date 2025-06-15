@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -15,7 +16,7 @@ const Index = () => {
         <section id="home">
           <Hero />
         </section>
-        <div className="position-relative bg-background z-index-1">
+        <div className="position-relative bg-background">
           <section id="about">
             <About />
           </section>

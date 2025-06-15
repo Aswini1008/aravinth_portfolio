@@ -14,7 +14,7 @@ const navLinks = [
 
 const Header: React.FC = () => {
   return (
-    <Navbar expand="md" fixed="top" className="header-blurred-bg" variant={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
+    <Navbar expand="md" fixed="top" className="header-blurred-bg" data-bs-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
       <Container>
         <Navbar.Brand href="#home" className="fs-4 fw-bold gradient-text text-decoration-none">AK</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
