@@ -15,7 +15,8 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Education', href: '#education' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
+  { name:
+'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -26,31 +27,31 @@ const Header: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-lg"
+      className="fixed-top header-blurred-bg"
     >
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold gradient-text">AK</a>
-        <ul className="hidden md:flex items-center space-x-6">
+      <nav className="container d-flex justify-content-between align-items-center px-3 py-3">
+        <a href="#home" className="fs-4 fw-bold gradient-text text-decoration-none">AK</a>
+        <ul className="d-none d-md-flex align-items-center list-unstyled gap-4 mb-0">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a href={link.href} className="text-foreground/80 hover:text-foreground hover:gradient-text transition-colors duration-300">
+              <a href={link.href} className="text-decoration-none" style={{color: 'hsl(var(--foreground) / 0.8)', transition: 'color 0.3s'}}>
                 {link.name}
               </a>
             </li>
           ))}
         </ul>
-        <div className="md:hidden">
+        <div className="d-md-none">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="btn-ghost">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
+                <span className="visually-hidden">Open menu</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {navLinks.map((link) => (
                 <DropdownMenuItem key={link.name} asChild>
-                  <a href={link.href} className="w-full text-lg p-2">
+                  <a href={link.href} className="d-block w-100 p-2 fs-6 text-decoration-none">
                     {link.name}
                   </a>
                 </DropdownMenuItem>

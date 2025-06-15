@@ -25,29 +25,30 @@ const Experience: React.FC = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8 }}
-      className="container mx-auto px-6 py-20"
+      className="container px-3 py-5"
     >
-      <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Experience</h2>
-      <div className="grid md:grid-cols-2 gap-8">
+      <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Experience</h2>
+      <div className="row g-4">
         {experienceData.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-card border border-border p-6 rounded-lg shadow-lg flex items-start gap-4 glow-card"
-          >
-            <div className="text-accent mt-1">
-              <Briefcase size={24} />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">{exp.role}</h3>
-              <p className="font-semibold text-secondary">{exp.company}</p>
-              <p className="text-sm text-muted-foreground my-1">{exp.duration}</p>
-              <p className="text-muted-foreground mt-2">{exp.description}</p>
-            </div>
-          </motion.div>
+          <div key={index} className="col-md-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="card bg-card border border-border p-3 rounded-3 shadow-sm d-flex flex-row align-items-start gap-3 glow-card h-100"
+            >
+              <div style={{color: 'hsl(var(--accent))'}} className="mt-1">
+                <Briefcase size={24} />
+              </div>
+              <div>
+                <h3 className="fs-5 fw-bold">{exp.role}</h3>
+                <p className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{exp.company}</p>
+                <p className="small my-1" style={{ color: 'hsl(var(--muted-foreground))' }}>{exp.duration}</p>
+                <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>{exp.description}</p>
+              </div>
+            </motion.div>
+          </div>
         ))}
       </div>
     </motion.div>

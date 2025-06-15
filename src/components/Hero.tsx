@@ -90,25 +90,25 @@ const Hero: React.FC = () => {
   const typedRole = useTypingEffect(roles);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-4">
+    <div className="position-relative min-vh-100 d-flex align-items-center justify-content-center text-center overflow-hidden px-3">
       {init && <Particles id="tsparticles" particlesLoaded={particlesLoaded} options={options} />}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="z-10 p-4"
+        className="z-1 p-3"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-2">
+        <h1 className="display-4 display-md-2 fw-bold mb-2">
           Hi, I'm Aravinth Kumar
         </h1>
-        <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-8 h-12 flex items-center justify-center">
+        <div className="display-6 display-md-4 fw-bold gradient-text mb-4 d-flex align-items-center justify-content-center" style={{height: '3rem'}}>
           <span>{typedRole}</span>
-          <span className="inline-block w-1 h-8 md:h-10 ml-2 bg-accent animate-pulse"></span>
-        </h2>
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <span className="d-inline-block ms-2" style={{width: '4px', height: '2.5rem', backgroundColor: 'hsl(var(--accent))', animation: 'pulse 1.5s infinite'}}></span>
+        </div>
+        <p className="fs-5 fs-md-4 mb-4 mx-auto" style={{ color: 'hsl(var(--muted-foreground))', maxWidth: '50rem' }}>
           I build beautiful, responsive, and highly interactive web applications.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="d-flex flex-column flex-sm-row justify-content-center gap-3">
           <CustomButton variant="outline">Download Resume</CustomButton>
           <CustomButton variant="solid" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Let’s Connect</CustomButton>
         </div>

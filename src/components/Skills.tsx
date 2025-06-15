@@ -29,31 +29,32 @@ const Skills: React.FC = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
-      className="container mx-auto px-6 py-20"
+      className="container px-3 py-5"
     >
-      <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Skills & Tech Stack</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Skills & Tech Stack</h2>
+      <div className="row g-4">
         {Object.entries(skillsData).map(([category, data], index) => (
-          <motion.div
-            key={category}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-card border border-border rounded-lg shadow-lg p-6 text-center glow-card"
-          >
-            <div className="inline-block bg-accent/20 text-accent p-3 rounded-full mb-4">
-              {React.cloneElement(data.icon, { size: 32 })}
-            </div>
-            <h3 className="text-xl font-bold mb-4">{category}</h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {data.skills.map(skill => (
-                <div key={skill} className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="col-md-6" key={category}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="card bg-card border border-border rounded-3 shadow-sm p-4 text-center h-100 glow-card"
+            >
+              <div className="d-inline-block p-3 rounded-circle mb-4" style={{backgroundColor: 'hsl(var(--accent)/0.2)', color: 'hsl(var(--accent))'}}>
+                {React.cloneElement(data.icon, { size: 32 })}
+              </div>
+              <h3 className="h5 fw-bold mb-4">{category}</h3>
+              <div className="d-flex flex-wrap justify-content-center gap-2">
+                {data.skills.map(skill => (
+                  <div key={skill} className="badge rounded-pill px-3 py-2" style={{backgroundColor: 'hsl(var(--muted))', color: 'hsl(var(--muted-foreground))'}}>
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         ))}
       </div>
     </motion.div>
