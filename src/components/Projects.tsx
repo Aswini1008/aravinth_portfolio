@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
-import CustomButton from './CustomButton';
+import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import { Github, BoxArrowUpRight } from 'react-bootstrap-icons';
 
 const projectsData = [
   {
@@ -32,52 +31,52 @@ const projectsData = [
 ];
 
 const Projects: React.FC = () => {
+    const customSolidStyle = {
+      background: 'linear-gradient(to right, hsl(var(--accent)), hsl(var(--secondary)))',
+      border: 'none',
+      color: 'hsl(var(--primary-foreground))',
+    };
+
+    const customOutlineStyle = {
+      borderColor: 'hsl(var(--accent))',
+      color: 'hsl(var(--accent))',
+      borderWidth: '2px',
+    };
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8 }}
-      className="container px-3 py-5"
-    >
+    <Container className="px-3 py-5">
       <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Projects</h2>
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <Row xs={1} md={2} lg={3} className="g-4">
         {projectsData.map((project, index) => (
-          <div key={index} className="col">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card bg-card border border-border rounded-3 shadow-sm overflow-hidden h-100 d-flex flex-column group glow-card"
-            >
+          <Col key={index}>
+            <Card className="rounded-3 shadow-sm overflow-hidden h-100 d-flex flex-column group glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
               <div className="overflow-hidden" style={{height: '12rem'}}>
-                <img src={project.imageUrl} alt={project.title} className="w-100 h-100 object-cover" style={{ transition: 'transform 0.5s ease-in-out'}} />
+                <Card.Img variant="top" src={project.imageUrl} alt={project.title} className="w-100 h-100" style={{ objectFit: 'cover', transition: 'transform 0.5s ease-in-out'}} />
               </div>
-              <div
-                className="card-body d-flex flex-column"
-              >
-                <h3 className="h5 card-title fw-bold mb-2">{project.title}</h3>
-                <p className="card-text flex-grow-1" style={{color: 'hsl(var(--muted-foreground))'}}>{project.description}</p>
+              <Card.Body className="d-flex flex-column">
+                <Card.Title as="h3" className="h5 fw-bold mb-2">{project.title}</Card.Title>
+                <Card.Text className="flex-grow-1" style={{color: 'hsl(var(--muted-foreground))'}}>
+                  {project.description}
+                </Card.Text>
                 <div className="d-flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="badge rounded-pill" style={{backgroundColor: 'hsl(var(--secondary))', color: 'hsl(var(--secondary-foreground))'}}>{tag}</span>
+                    <Badge key={tag} pill bg="" style={{backgroundColor: 'hsl(var(--secondary))', color: 'hsl(var(--secondary-foreground))'}}>{tag}</Badge>
                   ))}
                 </div>
                 <div className="d-flex flex-wrap gap-2 mt-auto pt-3 border-top" style={{borderColor: 'hsl(var(--border) / 0.2)'}}>
-                  <CustomButton variant="outline" onClick={() => window.open(project.githubUrl, '_blank')}>
+                  <Button variant="outline-primary" style={customOutlineStyle} className="custom-btn-outline" onClick={() => window.open(project.githubUrl, '_blank')}>
                     <Github size={16} className="me-2" /> GitHub
-                  </CustomButton>
-                  <CustomButton variant="solid" onClick={() => window.open(project.liveUrl, '_blank')}>
-                    <ExternalLink size={16} className="me-2" /> Live Demo
-                  </CustomButton>
+                  </Button>
+                  <Button variant="primary" style={customSolidStyle} className="custom-btn-solid" onClick={() => window.open(project.liveUrl, '_blank')}>
+                    <BoxArrowUpRight size={16} className="me-2" /> Live Demo
+                  </Button>
                 </div>
-              </div>
-            </motion.div>
-          </div>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </motion.div>
+      </Row>
+    </Container>
   );
 };
 

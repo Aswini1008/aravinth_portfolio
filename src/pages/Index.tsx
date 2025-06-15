@@ -10,13 +10,13 @@ import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
-    <div className="bg-background text-foreground font-sans selection:bg-accent/30">
+    <div className="bg-background text-foreground selection:bg-accent/30">
       <Header />
       <main>
         <section id="home">
           <Hero />
         </section>
-        <div className="relative bg-background z-10">
+        <div className="position-relative bg-background z-index-1">
           <section id="about">
             <About />
           </section>

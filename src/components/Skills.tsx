@@ -1,63 +1,53 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Code, Brush, Database, Cog } from 'lucide-react';
+import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
+import { CodeSlash, Brush, Database, Gear } from 'react-bootstrap-icons';
 
 const skillsData = {
   'Programming Languages': {
-    icon: <Code />,
+    icon: <CodeSlash size={32} />,
     skills: ['Java', 'Python', 'JavaScript', 'C'],
   },
   'Frontend': {
-    icon: <Brush />,
+    icon: <Brush size={32} />,
     skills: ['React.js', 'HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'Framer Motion'],
   },
   'Backend': {
-    icon: <Database />,
+    icon: <Database size={32} />,
     skills: ['Node.js', 'Firebase', 'Express.js'],
   },
   'Tools & Other Tech': {
-    icon: <Cog />,
+    icon: <Gear size={32} />,
     skills: ['Git', 'GitHub', 'Postman', 'Netlify', 'Cloudinary', 'Vercel', 'VS Code'],
   },
 };
 
 const Skills: React.FC = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8 }}
-      className="container px-3 py-5"
-    >
+    <Container className="px-3 py-5">
       <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Skills & Tech Stack</h2>
-      <div className="row g-4">
-        {Object.entries(skillsData).map(([category, data], index) => (
-          <div className="col-md-6" key={category}>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card bg-card border border-border rounded-3 shadow-sm p-4 text-center h-100 glow-card"
-            >
+      <Row className="g-4">
+        {Object.entries(skillsData).map(([category, data]) => (
+          <Col md={6} key={category}>
+            <Card className="rounded-3 shadow-sm p-4 text-center h-100 glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
               <div className="d-inline-block p-3 rounded-circle mb-4" style={{backgroundColor: 'hsl(var(--accent)/0.2)', color: 'hsl(var(--accent))'}}>
-                {React.cloneElement(data.icon, { size: 32 })}
+                {data.icon}
               </div>
-              <h3 className="h5 fw-bold mb-4">{category}</h3>
-              <div className="d-flex flex-wrap justify-content-center gap-2">
-                {data.skills.map(skill => (
-                  <div key={skill} className="badge rounded-pill px-3 py-2" style={{backgroundColor: 'hsl(var(--muted))', color: 'hsl(var(--muted-foreground))'}}>
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+              <Card.Body className="p-0">
+                <Card.Title as="h3" className="h5 fw-bold mb-4">{category}</Card.Title>
+                <div className="d-flex flex-wrap justify-content-center gap-2">
+                  {data.skills.map(skill => (
+                    <Badge key={skill} pill bg="" className="px-3 py-2" style={{backgroundColor: 'hsl(var(--muted))', color: 'hsl(var(--muted-foreground))'}}>
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </motion.div>
+      </Row>
+    </Container>
   );
 };
 

@@ -1,5 +1,7 @@
-import { useLocation } from "react-router-dom";
+
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,15 +14,15 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+    <Container fluid className="vh-100 d-flex align-items-center justify-content-center text-center bg-light">
+      <div>
+        <h1 className="display-1 fw-bold mb-4">404</h1>
+        <p className="fs-4 text-muted mb-4">Oops! Page not found</p>
+        <Link to="/" className="btn btn-primary">
           Return to Home
-        </a>
+        </Link>
       </div>
-    </div>
+    </Container>
   );
 };
 

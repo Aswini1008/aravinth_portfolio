@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { School } from 'lucide-react';
+import { Container } from 'react-bootstrap';
+import { MortarboardFill } from 'react-bootstrap-icons';
 
 const educationData = [
   {
@@ -14,38 +14,25 @@ const educationData = [
 
 const Education: React.FC = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8 }}
-      className="container px-3 py-5"
-    >
+    <Container className="px-3 py-5">
       <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Education</h2>
       <div className="position-relative mx-auto" style={{maxWidth: '42rem'}}>
-        <div className="position-absolute start-0 top-0 h-100 rounded-pill" style={{ left: '0.65rem', width: '4px', backgroundColor: 'hsl(var(--accent)/0.3)'}}></div>
+        <div className="position-absolute h-100 rounded-pill" style={{ left: '18px', width: '4px', backgroundColor: 'hsl(var(--accent)/0.3)'}}></div>
         {educationData.map((item, index) => (
-          <motion.div
-            key={index}
-            className="d-flex align-items-start mb-5"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <div className="z-1 rounded-circle p-2 border-2" style={{backgroundColor: 'hsl(var(--background))', borderColor: 'hsl(var(--accent))', borderStyle: 'solid'}}>
-              <School style={{color: 'hsl(var(--accent))'}} />
+          <div key={index} className="d-flex align-items-start mb-5 position-relative">
+            <div className="z-1 rounded-circle p-2 border-2 d-inline-flex justify-content-center align-items-center" style={{backgroundColor: 'hsl(var(--background))', border: `2px solid hsl(var(--accent))`, width: '40px', height: '40px'}}>
+              <MortarboardFill style={{color: 'hsl(var(--accent))'}} size={20} />
             </div>
-            <div className="ms-4 p-3 bg-card border border-border rounded-3 shadow-sm w-100 glow-card">
+            <div className="ms-4 p-3 rounded-3 shadow-sm w-100 glow-card" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
               <h3 className="fs-5 fw-bold">{item.degree}</h3>
               <p className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{item.institution}</p>
               <p className="small my-1" style={{color: 'hsl(var(--muted-foreground))'}}>{item.years}</p>
               <p className="small mt-2" style={{color: 'hsl(var(--muted-foreground))'}}>{item.details}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </Container>
   );
 };
 

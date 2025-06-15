@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { BriefcaseFill } from 'react-bootstrap-icons';
 
 const experienceData = [
   {
@@ -20,38 +20,28 @@ const experienceData = [
 
 const Experience: React.FC = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8 }}
-      className="container px-3 py-5"
-    >
+    <Container className="px-3 py-5">
       <h2 className="display-5 fw-bold text-center mb-5 gradient-text">Experience</h2>
-      <div className="row g-4">
+      <Row className="g-4">
         {experienceData.map((exp, index) => (
-          <div key={index} className="col-md-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="card bg-card border border-border p-3 rounded-3 shadow-sm d-flex flex-row align-items-start gap-3 glow-card h-100"
-            >
+          <Col md={6} key={index}>
+            <Card className="p-3 rounded-3 shadow-sm d-flex flex-row align-items-start gap-3 glow-card h-100" style={{backgroundColor: 'hsl(var(--card))', border: `1px solid hsl(var(--border))`}}>
               <div style={{color: 'hsl(var(--accent))'}} className="mt-1">
-                <Briefcase size={24} />
+                <BriefcaseFill size={24} />
               </div>
-              <div>
-                <h3 className="fs-5 fw-bold">{exp.role}</h3>
-                <p className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{exp.company}</p>
+              <Card.Body className="p-0">
+                <Card.Title as="h3" className="fs-5 fw-bold">{exp.role}</Card.Title>
+                <Card.Subtitle className="fw-semibold" style={{color: 'hsl(var(--secondary))'}}>{exp.company}</Card.Subtitle>
                 <p className="small my-1" style={{ color: 'hsl(var(--muted-foreground))' }}>{exp.duration}</p>
-                <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>{exp.description}</p>
-              </div>
-            </motion.div>
-          </div>
+                <Card.Text as="p" className="mt-2 mb-0" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                    {exp.description}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </motion.div>
+      </Row>
+    </Container>
   );
 };
 

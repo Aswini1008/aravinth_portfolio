@@ -1,11 +1,10 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Container } from "@tsparticles/engine";
+import type { Container as ParticlesContainer } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { useTypingEffect } from '@/hooks/useTypingEffect';
-import CustomButton from './CustomButton';
+import { Button } from 'react-bootstrap';
 
 const Hero: React.FC = () => {
   const [init, setInit] = useState(false);
@@ -18,7 +17,7 @@ const Hero: React.FC = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container) => {
+  const particlesLoaded = async (container?: ParticlesContainer) => {
     console.log(container);
   };
   
@@ -46,10 +45,10 @@ const Hero: React.FC = () => {
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: "hsl(var(--foreground))",
         },
         links: {
-          color: "#ffffff",
+          color: "hsl(var(--foreground))",
           distance: 150,
           enable: true,
           opacity: 0.1,
@@ -88,16 +87,23 @@ const Hero: React.FC = () => {
 
   const roles = useMemo(() => ["Full Stack Developer", "Software Engineer"], []);
   const typedRole = useTypingEffect(roles);
+  
+  const customSolidStyle = {
+    background: 'linear-gradient(to right, hsl(var(--accent)), hsl(var(--secondary)))',
+    border: 'none',
+    color: 'hsl(var(--primary-foreground))',
+  };
+
+  const customOutlineStyle = {
+    borderColor: 'hsl(var(--accent))',
+    color: 'hsl(var(--accent))',
+    borderWidth: '2px',
+  };
 
   return (
-    <div className="position-relative min-vh-100 d-flex align-items-center justify-content-center text-center overflow-hidden px-3">
+    <div className="position-relative vh-100 d-flex align-items-center justify-content-center text-center overflow-hidden px-3">
       {init && <Particles id="tsparticles" particlesLoaded={particlesLoaded} options={options} />}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="z-1 p-3"
-      >
+      <div className="z-1 p-3">
         <h1 className="display-4 display-md-2 fw-bold mb-2">
           Hi, I'm Aravinth Kumar
         </h1>
@@ -109,10 +115,10 @@ const Hero: React.FC = () => {
           I build beautiful, responsive, and highly interactive web applications.
         </p>
         <div className="d-flex flex-column flex-sm-row justify-content-center gap-3">
-          <CustomButton variant="outline">Download Resume</CustomButton>
-          <CustomButton variant="solid" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Let’s Connect</CustomButton>
+          <Button variant="outline-primary" className="custom-btn-outline rounded-pill px-4 py-2 fw-semibold" style={customOutlineStyle}>Download Resume</Button>
+          <Button variant="primary" className="custom-btn-solid rounded-pill px-4 py-2 fw-semibold" style={customSolidStyle} onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Let’s Connect</Button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
